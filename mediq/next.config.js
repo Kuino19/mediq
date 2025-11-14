@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true, // enable App Router
+    appDir: true, // enables App Router
   },
-  // Add any other options you had here
+  reactStrictMode: true,
+  images: {
+    // Add any external domains you use for <Image />
+    domains: ['example.com'], 
+  },
 };
 
 module.exports = nextConfig;
