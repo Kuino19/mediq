@@ -6,6 +6,15 @@ export const metadata: Metadata = {
   title: 'KinetiQ Landing',
   description: 'Efficient, intelligent, and compassionate patient flow management. Welcome to the future of healthcare.',
   manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "KinetiQ",
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
