@@ -17,7 +17,9 @@ export default function DashboardLayout({
             <Logo />
           </div>
           <div className="hidden group-data-[collapsible=icon]:block">
-            <Logo className="items-center justify-center" />
+            <div className="flex items-center justify-center">
+              <Stethoscope className="h-6 w-6 text-primary" />
+            </div>
           </div>
         </SidebarHeader>
         <SidebarContent>
