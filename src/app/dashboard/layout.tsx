@@ -33,11 +33,11 @@ export default function DashboardLayout({
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Patients" asChild>
-                <a href="#">
+              <SidebarMenuButton tooltip="History" asChild>
+                <Link href="/dashboard/history">
                   <Users />
-                  <span>Patients</span>
-                </a>
+                  <span>History</span>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>

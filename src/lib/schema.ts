@@ -84,6 +84,7 @@ export const queue = sqliteTable('queue', {
     guestName: text('guest_name'),
     guestContact: text('guest_contact'),
     hospitalId: integer('hospital_id').notNull().references(() => hospitals.id, { onDelete: 'cascade' }),
+    doctorId: integer('doctor_id').references(() => users.id, { onDelete: 'set null' }), // Track which doctor is seeing the patient
     summaryId: integer('summary_id').notNull().references(() => summaries.id, { onDelete: 'cascade' }).unique(),
     status: text('status', { enum: ['waiting', 'in-progress', 'completed'] }).default('waiting').notNull(),
     priority: integer('priority').default(3).notNull(), // 1: high, 2: medium, 3: low
