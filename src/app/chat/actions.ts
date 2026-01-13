@@ -1,8 +1,20 @@
 'use server';
 
 import { db } from '@/lib/db';
-import { queue } from '@/lib/schema';
+import { queue, hospitals } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
+
+
+export async function getHospitals() {
+    const allHospitals = await db.query.hospitals.findMany({
+        columns: {
+            id: true,
+            name: true,
+            address: true,
+        }
+    });
+    return allHospitals;
+}
 
 export async function checkQueueStatus(queueId: number) {
     if (!queueId) return null;

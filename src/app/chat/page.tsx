@@ -13,6 +13,8 @@ import type { Message } from "@/lib/schemas";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { getHospitals } from "./actions";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const initialMessages: Message[] = [
   { id: '1', text: "Hello! I'm the KinetiQ virtual assistant. How can I help you today?", sender: 'bot' }
@@ -62,6 +64,14 @@ export default function ChatPage() {
   const [guestContact, setGuestContact] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  const [hospitals, setHospitals] = useState<{ id: number, name: string }[]>([]);
+  const [selectedHospitalId, setSelectedHospitalId] = useState<string>("");
+
+  useEffect(() => {
+    // Fetch hospitals on mount
+    getHospitals().then(setHospitals).catch(console.error);
+  }, []);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -93,6 +103,11 @@ export default function ChatPage() {
   }, []);
 
   const handleSubmitToQueue = async () => {
+    if (!selectedHospitalId) {
+      alert("Please select a hospital");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -103,7 +118,7 @@ export default function ChatPage() {
           patientId: undefined, // Anonymous user
           guestName,
           guestContact,
-          hospitalId: 1, // TODO: Get from hospital selection
+          hospitalId: parseInt(selectedHospitalId),
           conversationId,
           messages: messages.map(m => ({ text: m.text, sender: m.sender })),
         }),
@@ -368,7 +383,7 @@ export default function ChatPage() {
                   <DialogHeader>
                     <DialogTitle>Enter Your Details</DialogTitle>
                     <DialogDescription>
-                      Please provide your name and contact info so we can notify you when it's your turn.
+                      Please provide your details so we can add you to the correct queue.
                     </DialogDescription>
                   </DialogHeader>
                   <div className="grid gap-4 py-4">
@@ -396,9 +411,28 @@ export default function ChatPage() {
                         placeholder="Phone or Email"
                       />
                     </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="hospital" className="text-right">
+                        Hospital
+                      </Label>
+                      <div className="col-span-3">
+                        <Select value={selectedHospitalId} onValueChange={setSelectedHospitalId}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select Hospital" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {hospitals.map(hospital => (
+                              <SelectItem key={hospital.id} value={hospital.id.toString()}>
+                                {hospital.name} ({hospital.address})
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
                   </div>
                   <DialogFooter>
-                    <Button onClick={handleSubmitToQueue} disabled={isSubmitting || !guestName}>
+                    <Button onClick={handleSubmitToQueue} disabled={isSubmitting || !guestName || !selectedHospitalId}>
                       {isSubmitting ? 'Submitting...' : 'Join Queue'}
                     </Button>
                   </DialogFooter>
