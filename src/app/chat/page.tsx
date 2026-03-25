@@ -64,7 +64,7 @@ export default function ChatPage() {
   const [guestContact, setGuestContact] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const [hospitals, setHospitals] = useState<{ id: number, name: string }[]>([]);
+  const [hospitals, setHospitals] = useState<{ id: number; name: string; address: string | null }[]>([]);
   const [selectedHospitalId, setSelectedHospitalId] = useState<string>("");
 
   useEffect(() => {
@@ -423,7 +423,7 @@ export default function ChatPage() {
                           <SelectContent>
                             {hospitals.map(hospital => (
                               <SelectItem key={hospital.id} value={hospital.id.toString()}>
-                                {hospital.name} ({hospital.address})
+                                {hospital.name}{hospital.address ? ` (${hospital.address})` : ''}
                               </SelectItem>
                             ))}
                           </SelectContent>
