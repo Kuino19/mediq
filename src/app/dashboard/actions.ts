@@ -28,10 +28,7 @@ export async function getPatientQueue() {
                 }
             }
         },
-        where: and(
-            eq(queue.hospitalId, user.hospitalId),
-            ne(queue.status, 'completed')
-        ),
+        where: eq(queue.hospitalId, user.hospitalId),
         orderBy: [asc(queue.priority), asc(queue.createdAt)],
     });
 
