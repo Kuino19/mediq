@@ -30,15 +30,7 @@ export async function getPatientQueue() {
         },
         where: and(
             eq(queue.hospitalId, user.hospitalId),
-            // Show waiting patients, OR patients assigned to THIS doctor
-            // Ensure we don't show completed patients here (they go to history)
-            and(
-                ne(queue.status, 'completed'),
-                or(
-                    eq(queue.status, 'waiting'),
-                    and(eq(queue.status, 'in-progress'), eq(queue.doctorId, user.id))
-                )
-            )
+            ne(queue.status, 'completed')
         ),
         orderBy: [asc(queue.priority), asc(queue.createdAt)],
     });
