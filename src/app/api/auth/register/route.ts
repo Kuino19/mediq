@@ -7,11 +7,23 @@ import bcrypt from 'bcryptjs';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { fullName, email, password, hospitalName } = body;
+    const { fullName, email, password, hospitalId } = body;
 
-    if (!fullName || !email || !password || !hospitalName) {
+    if (!fullName || !email || !password || !hospitalId) {
       return NextResponse.json(
         { error: 'All fields are required' },
+        { status: 400 }
+      );
+    }
+
+    // Validate the selected hospital exists
+    const hospital = await db.query.hospitals.findFirst({
+      where: eq(hospitals.id, Number(hospitalId)),
+    });
+
+    if (!hospital) {
+      return NextResponse.json(
+        { error: 'Selected hospital not found' },
         { status: 400 }
       );
     }
@@ -31,16 +43,7 @@ export async function POST(request: NextRequest) {
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create hospital
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const hospitalResult = await db.insert(hospitals).values({
-      name: hospitalName,
-      address: 'Address Pending', // Could add address field to form later
-    } as any).returning();
-
-    const hospital = hospitalResult[0];
-
-    // Create user (doctor)
+    // Create user (doctor) linked to the existing hospital
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const userResult = await db.insert(users).values({
       fullName,
@@ -57,7 +60,7 @@ export async function POST(request: NextRequest) {
     await db.insert(doctors).values({
       userId: user.id,
       hospitalId: hospital.id,
-      specialty: 'General Practice', // Default
+      specialty: 'General Practice',
     } as any);
 
     return NextResponse.json(
