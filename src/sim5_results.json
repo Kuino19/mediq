@@ -1,0 +1,401 @@
+{
+  "metadata": {
+    "simulation_date": "2026-03-25T04:28:14.199Z",
+    "project": "MediQ – AI-Enhanced Pre-Consultation System",
+    "university": "Babcock University, Ilisan Remo, Ogun State, Nigeria",
+    "authors": [
+      "Adebola Joshua Adedeji – 22/0596",
+      "Lawal John Ifedayo – 22/0391"
+    ],
+    "model": "llama-3.3-70b-versatile",
+    "note": "Realistic lay-language patient responses. Patients do not use medical diagnosis terms.",
+    "patients_simulated": 5
+  },
+  "statistics": {
+    "triage_accuracy": "5/5",
+    "total_time_saved_mins": 42,
+    "avg_time_saved_mins": 8.4
+  },
+  "conversations": [
+    {
+      "patient": {
+        "id": 1,
+        "name": "Adeola Bakare",
+        "age": 34,
+        "sex": "F",
+        "complexity": "Low",
+        "chief_complaint": "Headache and dizziness (on BP treatment)"
+      },
+      "conversation": [
+        {
+          "speaker": "MediQ",
+          "text": "Hello! I'm the MediQ virtual assistant. I'll ask you a few questions about what brings you in today so the doctor can prepare for your visit. How can I help you?"
+        },
+        {
+          "speaker": "Adeola Bakare",
+          "text": "I have been having this pounding headache and I feel a bit dizzy. I am not sure what is causing it."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "That sounds uncomfortable, can you tell me how long you've been experiencing this pounding headache and dizziness, is it something that just started or has it been going on for a while?"
+        },
+        {
+          "speaker": "Adeola Bakare",
+          "text": "It has been going on for about three days now."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "So it's been a relatively short period of time, three days. Can you describe the headache a bit more, is it a mild ache or is it severe, and is it constant or does it come and go?"
+        },
+        {
+          "speaker": "Adeola Bakare",
+          "text": "It is more like a dull, throbbing pain, mostly around the back of my head. I would say maybe a 4 out of 10. The dizziness is mild, not like the room is spinning, just a little unsteady."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "So the headache is a dull, throbbing pain, mostly at the back of your head, and the dizziness is mild and makes you feel a bit unsteady. Have you noticed any other symptoms, such as nausea, sensitivity to light or sound, or fever, that are happening at the same time as the headache and dizziness?"
+        },
+        {
+          "speaker": "Adeola Bakare",
+          "text": "No, just the headache and the dizziness. No vomiting or anything like that."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "You're experiencing the headache and dizziness in isolation, without any other symptoms like nausea or vomiting. Do you have any pre-existing medical conditions, or are you taking any medications or supplements that might be relevant to what you're experiencing now?"
+        },
+        {
+          "speaker": "Adeola Bakare",
+          "text": "Yes, the doctor told me my blood pressure is high so I take a tablet every morning. I think it is called Amlodipine. I have been on it for about two years."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "You've been taking Amlodipine for high blood pressure for about two years, that's helpful to know. Are you allergic to any medications, or have you had any adverse reactions to medications in the past, besides the Amlodipine which you've been taking without issue?"
+        },
+        {
+          "speaker": "Adeola Bakare",
+          "text": "No allergies that I know of. I just want to make sure my blood pressure is okay."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "Thank you for sharing all this information with me, I'll make sure the doctor has a complete picture of what's been going on with you, and they'll review your information shortly to discuss further with you, I wish you all the best."
+        }
+      ],
+      "ai_output": {
+        "summary": "The patient is experiencing a dull, throbbing headache and mild dizziness for three days, with no other symptoms like nausea or vomiting, and has a history of high blood pressure managed with Amlodipine. The headache is rated 4 out of 10 and the dizziness is mild. The patient's primary concern is ensuring their blood pressure is under control.",
+        "triage_code": "green",
+        "next_steps": "The doctor should review the patient's blood pressure records and consider a follow-up check on the current medication regimen, also evaluating the headache and dizziness in the context of the patient's hypertension."
+      },
+      "evaluation": {
+        "expected_triage": "green",
+        "triage_match": true,
+        "baseline_review_mins": 8,
+        "mediq_review_mins": 2,
+        "time_saved_mins": 6
+      }
+    },
+    {
+      "patient": {
+        "id": 2,
+        "name": "Femi Adegoke",
+        "age": 25,
+        "sex": "M",
+        "complexity": "Medium",
+        "chief_complaint": "Sudden abdominal pain moving to lower right"
+      },
+      "conversation": [
+        {
+          "speaker": "MediQ",
+          "text": "Hello! I'm the MediQ virtual assistant. I'll ask you a few questions about what brings you in today so the doctor can prepare for your visit. How can I help you?"
+        },
+        {
+          "speaker": "Femi Adegoke",
+          "text": "I am having a bad pain in my stomach, it started this morning and it keeps coming and going."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "Can you tell me more about the pain, such as how severe it is, on a scale of 1 to 10, and if it's a sharp, dull, or crampy feeling?"
+        },
+        {
+          "speaker": "Femi Adegoke",
+          "text": "It started just a few hours ago, maybe since around 6 this morning."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "So the pain started around 6 am, and you mentioned it's been coming and going - have you noticed any other symptoms, like nausea, vomiting, or changes in your bowel movements, along with the stomach pain?"
+        },
+        {
+          "speaker": "Femi Adegoke",
+          "text": "The pain is crampy, like something squeezing inside. It started around my belly button but now it feels more towards the lower right side of my stomach. I would say about a 6 or 7 out of 10."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "That sounds uncomfortable - have you experienced any other symptoms like fever, chills, or loss of appetite, or have you recently eaten something that might have triggered the pain, like spicy or fatty foods?"
+        },
+        {
+          "speaker": "Femi Adegoke",
+          "text": "I feel slightly sick to my stomach, like I might vomit. I have not vomited yet though. No diarrhoea."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "The nausea is likely adding to your discomfort - do you have any pre-existing medical conditions, such as gastrointestinal issues or previous surgeries, that might be relevant to what you're experiencing now?"
+        },
+        {
+          "speaker": "Femi Adegoke",
+          "text": "No, I have never had any serious illness before and I am not on any medication."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "That's helpful to know - are you allergic to any medications, foods, or substances that you're aware of, or have you had any allergies or reactions in the past?"
+        },
+        {
+          "speaker": "Femi Adegoke",
+          "text": "The pain on the right side is getting worse and I am a bit scared. I have never felt this kind of pain before."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "Thank you for sharing that with me. I'm going to make sure the doctor is aware of all the details you've provided, and they will review your information shortly to determine the best course of action. I wish you all the best and hope you feel better soon."
+        }
+      ],
+      "ai_output": {
+        "summary": "The patient is experiencing crampy stomach pain that started around 6 am, initially around the belly button and now more towards the lower right side, with a severity of 6 or 7 out of 10, accompanied by nausea but no vomiting or diarrhea. The patient has no pre-existing medical conditions or allergies. The pain is worsening and causing concern.",
+        "triage_code": "yellow",
+        "next_steps": "The doctor should promptly review the patient's symptoms and consider potential causes for the abdominal pain, such as appendicitis, and prepare for a thorough examination and possible further testing."
+      },
+      "evaluation": {
+        "expected_triage": "yellow",
+        "triage_match": true,
+        "baseline_review_mins": 11,
+        "mediq_review_mins": 3,
+        "time_saved_mins": 8
+      }
+    },
+    {
+      "patient": {
+        "id": 3,
+        "name": "Aisha Usman",
+        "age": 37,
+        "sex": "F",
+        "complexity": "Medium",
+        "chief_complaint": "Pelvic pain and unusual discharge (allergy to a common antibiotic)"
+      },
+      "conversation": [
+        {
+          "speaker": "MediQ",
+          "text": "Hello! I'm the MediQ virtual assistant. I'll ask you a few questions about what brings you in today so the doctor can prepare for your visit. How can I help you?"
+        },
+        {
+          "speaker": "Aisha Usman",
+          "text": "I have been having pain in my lower belly and there is a discharge that is not normal for me."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "That must be uncomfortable for you. Can you tell me how long you've been experiencing the pain and discharge in your lower belly?"
+        },
+        {
+          "speaker": "Aisha Usman",
+          "text": "It started about five days ago."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "So it's been about five days since the symptoms began. How would you describe the severity of the pain, is it a dull ache, a sharp stabbing pain, or something else, and is it constant or does it come and go?"
+        },
+        {
+          "speaker": "Aisha Usman",
+          "text": "The pain is a dull ache, low down in my belly. I would say about a 6 out of 10. The discharge is yellowish and has a slight smell."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "That sounds quite unpleasant, especially with the smell. Are you experiencing any other symptoms along with the pain and discharge, such as fever, itching, or difficulty urinating?"
+        },
+        {
+          "speaker": "Aisha Usman",
+          "text": "I also have a mild fever and the pain gets worse when I walk around. I feel generally unwell."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "It sounds like you're feeling quite miserable with the combination of symptoms. Have you had any similar problems in the past, such as urinary tract infections, pelvic inflammatory disease, or other issues that might be related to your current symptoms?"
+        },
+        {
+          "speaker": "Aisha Usman",
+          "text": "I have no known medical conditions. But I need to mention that I once took an antibiotic, a capsule, and I got a very bad rash all over my body. The doctor at another hospital told me never to take that type of antibiotic again. I do not remember the exact name."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "It's good that you mentioned that, as it's important for us to know about any medication allergies or sensitivities. Are you currently taking any medications, supplements, or birth control that you're aware of, and do you have any other allergies to foods, environmental factors, or anything else that we should be aware of?"
+        },
+        {
+          "speaker": "Aisha Usman",
+          "text": "I am very worried because this type of discharge has never happened to me before."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "Thank you for sharing your concerns with me. The doctor will review all the information you've provided shortly, and they'll be able to discuss your symptoms and concerns with you in more detail, so please try not to worry, and I wish you all the best."
+        }
+      ],
+      "ai_output": {
+        "summary": "The patient is experiencing a dull ache in the lower belly with a yellowish discharge and a slight smell, accompanied by a mild fever and worsening pain upon movement, with no known medical conditions but a history of a severe allergic reaction to an unspecified antibiotic.",
+        "triage_code": "yellow",
+        "next_steps": "The doctor should promptly evaluate the patient's symptoms, considering possible infections such as pelvic inflammatory disease or urinary tract infections, and take into account the patient's allergy history when prescribing any potential antibiotics."
+      },
+      "evaluation": {
+        "expected_triage": "yellow",
+        "triage_match": true,
+        "baseline_review_mins": 11,
+        "mediq_review_mins": 3,
+        "time_saved_mins": 8
+      }
+    },
+    {
+      "patient": {
+        "id": 4,
+        "name": "Chukwuemeka Obi",
+        "age": 58,
+        "sex": "M",
+        "complexity": "High",
+        "chief_complaint": "Crushing chest pain radiating to left arm (STEMI)"
+      },
+      "conversation": [
+        {
+          "speaker": "MediQ",
+          "text": "Hello! I'm the MediQ virtual assistant. I'll ask you a few questions about what brings you in today so the doctor can prepare for your visit. How can I help you?"
+        },
+        {
+          "speaker": "Chukwuemeka Obi",
+          "text": "Please I need help quickly. I have a very severe pain in the middle of my chest, it is spreading down my left arm."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "That sounds very concerning, can you tell me how long you've been experiencing this chest pain and whether it's been constant or coming and going?"
+        },
+        {
+          "speaker": "Chukwuemeka Obi",
+          "text": "It started about 45 minutes ago and it has not stopped at all."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "Are you also experiencing any other symptoms, such as shortness of breath, dizziness, or nausea, along with the chest pain and arm discomfort?"
+        },
+        {
+          "speaker": "Chukwuemeka Obi",
+          "text": "It feels like something very heavy is sitting on my chest and squeezing it. I have never felt anything like this in my life. It is 10 out of 10."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "That must be very frightening and uncomfortable for you. Have you had any previous medical conditions, such as high blood pressure or heart problems, or are you taking any medications that might be relevant to what you're experiencing now?"
+        },
+        {
+          "speaker": "Chukwuemeka Obi",
+          "text": "I am sweating a lot, I feel like I want to vomit, and I am finding it hard to breathe properly."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "It sounds like you're experiencing a lot of distressing symptoms. Do you have any known allergies to medications, or have you had any previous allergic reactions that we should be aware of while we try to help you?"
+        },
+        {
+          "speaker": "Chukwuemeka Obi",
+          "text": "The doctor told me my blood pressure is high and I have sugar in my blood. I take a white tablet for the blood pressure and a round tablet for the sugar every day."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "So you have a history of high blood pressure and diabetes, and you're currently taking medication to manage those conditions. Have you experienced any similar episodes of chest pain or severe symptoms in the past, or is this the first time something like this has happened to you?"
+        },
+        {
+          "speaker": "Chukwuemeka Obi",
+          "text": "Please I am very scared, something is very wrong with me, I need to see the doctor immediately."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "You've shared all the necessary information, and I'm going to make sure the doctor reviews it right away. Thank you for talking with me, and I wish you all the best - the doctor will be with you shortly to help you feel better."
+        }
+      ],
+      "ai_output": {
+        "summary": "The patient is experiencing severe, constant chest pain radiating down the left arm, accompanied by shortness of breath, sweating, nausea, and a feeling of heavy pressure on the chest, with a history of high blood pressure and diabetes.",
+        "triage_code": "red",
+        "next_steps": "The doctor should immediately attend to the patient to assess for potential myocardial infarction or other life-threatening conditions and consider emergency interventions as necessary."
+      },
+      "evaluation": {
+        "expected_triage": "red",
+        "triage_match": true,
+        "baseline_review_mins": 14,
+        "mediq_review_mins": 4,
+        "time_saved_mins": 10
+      }
+    },
+    {
+      "patient": {
+        "id": 5,
+        "name": "Mama Eze",
+        "age": 65,
+        "sex": "F",
+        "complexity": "High",
+        "chief_complaint": "Thunderclap worst headache of life + stiff neck (Subarachnoid haemorrhage)"
+      },
+      "conversation": [
+        {
+          "speaker": "MediQ",
+          "text": "Hello! I'm the MediQ virtual assistant. I'll ask you a few questions about what brings you in today so the doctor can prepare for your visit. How can I help you?"
+        },
+        {
+          "speaker": "Mama Eze",
+          "text": "I have the worst headache of my entire life. It hit me very suddenly like something exploded in my head."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "That sounds extremely painful and alarming. Can you tell me approximately how long you've been experiencing this severe headache, was it just a few minutes ago or has it been going on for a few hours?"
+        },
+        {
+          "speaker": "Mama Eze",
+          "text": "It came on about 30 minutes ago very suddenly. One moment I was fine, the next moment it was like a thunderclap."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "A thunderclap headache is a very distinctive and intense type of headache. Are you experiencing any other symptoms along with the headache, such as nausea, vomiting, sensitivity to light, or dizziness?"
+        },
+        {
+          "speaker": "Mama Eze",
+          "text": "It is the most severe pain I have ever experienced in my life. A 10 out of 10. It is all over my head."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "The severity of the pain must be really overwhelming for you. Have you had any previous medical conditions, such as migraines, high blood pressure, or other health issues that might be relevant to what you're experiencing now?"
+        },
+        {
+          "speaker": "Mama Eze",
+          "text": "My neck is very stiff, I cannot bend it forward. I have vomited twice since it started. I feel confused."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "The stiffness in your neck and vomiting, along with the severe headache, are concerning symptoms. Are you currently taking any medications, or do you have any known allergies to medications that you're aware of?"
+        },
+        {
+          "speaker": "Mama Eze",
+          "text": "I take a tablet for my blood pressure, I have had high blood pressure for many years."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "It's good that you mentioned your high blood pressure and the medication you're taking. Have you ever had any previous episodes of severe headaches like this before, or any other significant medical conditions besides high blood pressure?"
+        },
+        {
+          "speaker": "Mama Eze",
+          "text": "This is not a normal headache. Something is very wrong. Please I need the doctor to see me right now."
+        },
+        {
+          "speaker": "MediQ",
+          "text": "Thank you for sharing all this information with me, I'm going to make sure the doctor reviews it right away. The doctor will be with you shortly to assess your condition and provide the necessary care, and I wish you all the best."
+        }
+      ],
+      "ai_output": {
+        "summary": "The patient is experiencing a sudden, severe headache described as a 'thunderclap' headache, which started 30 minutes ago, accompanied by stiffness in the neck, vomiting, and confusion. The patient has a history of high blood pressure and is currently taking medication for it. The patient is extremely concerned and feels that something is very wrong.",
+        "triage_code": "red",
+        "next_steps": "The doctor should immediately assess the patient for potential life-threatening conditions such as a hemorrhagic stroke or other serious neurological issues, and consider urgent diagnostic tests like a CT scan or MRI."
+      },
+      "evaluation": {
+        "expected_triage": "red",
+        "triage_match": true,
+        "baseline_review_mins": 14,
+        "mediq_review_mins": 4,
+        "time_saved_mins": 10
+      }
+    }
+  ]
+}
