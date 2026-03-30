@@ -137,7 +137,7 @@ export default function SummaryDetailPage() {
         <div className="p-4 sm:px-6 md:gap-8">
             <div className="flex items-center gap-4 mb-4">
                 <Button variant="outline" size="icon" asChild>
-                    <Link href="/dashboard"><ArrowLeft className="h-4 w-4" /></Link>
+                    <Link href="/dashboard/history"><ArrowLeft className="h-4 w-4" /></Link>
                 </Button>
                 <h1 className="text-2xl font-semibold font-headline">Consultation Summary</h1>
             </div>
@@ -165,15 +165,23 @@ export default function SummaryDetailPage() {
                                                 <AvatarFallback className="bg-primary text-primary-foreground"><Bot size={16} /></AvatarFallback>
                                             </Avatar>
                                         )}
-                                        <div
-                                            className={cn(
-                                                "max-w-[75%] rounded-xl px-4 py-2.5 text-sm shadow-sm",
-                                                message.sender === 'user'
-                                                    ? "bg-primary text-primary-foreground rounded-br-none"
-                                                    : "bg-background rounded-bl-none"
-                                            )}
-                                        >
-                                            <p>{message.message}</p>
+                                        <div className={cn(
+                                            "flex flex-col gap-1 max-w-[75%]",
+                                            message.sender === 'user' ? "items-end" : "items-start"
+                                        )}>
+                                            <div
+                                                className={cn(
+                                                    "rounded-xl px-4 py-2.5 text-sm shadow-sm",
+                                                    message.sender === 'user'
+                                                        ? "bg-primary text-primary-foreground rounded-br-none"
+                                                        : "bg-background rounded-bl-none"
+                                                )}
+                                            >
+                                                <p>{message.message}</p>
+                                            </div>
+                                            <span className="text-xs text-muted-foreground">
+                                                {format(new Date(message.createdAt * 1000), 'HH:mm')}
+                                            </span>
                                         </div>
                                         {message.sender === 'user' && (
                                             <Avatar className="w-8 h-8 border">

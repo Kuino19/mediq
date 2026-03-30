@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { getPatientQueue, updateQueueStatus, callNextPatient } from "./actions";
+import { getPatientQueue, updateQueueStatus, callNextPatient, getHistoryAnalytics } from "./actions";
 import { useEffect, useMemo, useState, useCallback, useTransition } from "react";
 import { AlertTriangle, ShieldCheck, Siren, Users, Play, Stethoscope } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -65,6 +65,7 @@ const TriageBadge = ({ code }: { code: string | null }) => {
 export default function DoctorDashboard() {
   const [queue, setQueue] = useState<QueueItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [historyData, setHistoryData] = useState<{ date: string; red: number; yellow: number; green: number }[]>([]);
   const { toast } = useToast();
   const [isCalling, startCallTransition] = useTransition();
 
@@ -84,7 +85,9 @@ export default function DoctorDashboard() {
 
   useEffect(() => {
     loadQueue();
-    const intervalId = setInterval(loadQueue, 5000); // 5s polling is reasonable for dashboard
+    const intervalId = setInterval(loadQueue, 5000);
+    // Load analytics once on mount
+    getHistoryAnalytics(7).then(setHistoryData).catch(() => {});
     return () => clearInterval(intervalId);
   }, [loadQueue]);
 
@@ -347,6 +350,39 @@ export default function DoctorDashboard() {
             </CardContent>
           </Card>
         </div>
+
+        {/* 7-Day History Analytics */}
+        <Card>
+          <CardHeader>
+            <CardTitle>7-Day Patient History</CardTitle>
+            <CardDescription>Completed consultations by triage level over the last 7 days.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {historyData.length === 0 ? (
+              <div className="flex items-center justify-center h-[200px] text-muted-foreground text-sm">
+                No completed consultations in the last 7 days.
+              </div>
+            ) : (
+              <ChartContainer
+                config={{
+                  red: { label: 'Emergency', color: 'hsl(0 84% 60%)' },
+                  yellow: { label: 'Urgent', color: 'hsl(43 74% 66%)' },
+                  green: { label: 'Non-Urgent', color: 'hsl(142 71% 45%)' },
+                }}
+                className="min-h-[200px] w-full"
+              >
+                <BarChart accessibilityLayer data={historyData}>
+                  <CartesianGrid vertical={false} />
+                  <XAxis dataKey="date" tickLine={false} axisLine={false} tickMargin={8} />
+                  <ChartTooltip content={<ChartTooltipContent indicator="dot" />} />
+                  <Bar dataKey="green" stackId="a" fill="hsl(142 71% 45%)" radius={[0, 0, 0, 0]} />
+                  <Bar dataKey="yellow" stackId="a" fill="hsl(43 74% 66%)" radius={[0, 0, 0, 0]} />
+                  <Bar dataKey="red" stackId="a" fill="hsl(0 84% 60%)" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ChartContainer>
+            )}
+          </CardContent>
+        </Card>
       </main>
     </div>
   );

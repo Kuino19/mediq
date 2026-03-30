@@ -35,6 +35,11 @@ export default function DashboardLayout({
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
 
+  async function handleLogout() {
+    await fetch('/api/auth/logout', { method: 'POST' });
+    router.push('/login');
+  }
+
   function isActive(href: string, exact?: boolean) {
     return exact ? pathname === href : pathname.startsWith(href);
   }
@@ -91,7 +96,7 @@ export default function DashboardLayout({
           <button
             className="sidebar-link logout-btn"
             title={collapsed ? "Logout" : undefined}
-            onClick={() => router.push("/")}
+            onClick={handleLogout}
           >
             <LogOut size={18} className="sidebar-link-icon" />
             {!collapsed && <span className="sidebar-link-label">Logout</span>}

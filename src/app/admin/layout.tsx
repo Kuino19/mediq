@@ -38,8 +38,8 @@ export default function AdminLayout({
         },
     ];
 
-    const handleLogout = () => {
-        document.cookie = 'auth-token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    const handleLogout = async () => {
+        await fetch('/api/auth/logout', { method: 'POST' });
         router.push('/login');
     };
 

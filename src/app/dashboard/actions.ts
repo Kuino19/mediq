@@ -2,11 +2,12 @@
 
 import { z } from 'zod';
 import { db, _updateQueueStatusDb } from '@/lib/db';
-import { summaries, queue, chats } from '@/lib/schema';
-import { eq, asc, and, or, desc, ne } from 'drizzle-orm';
-import { format } from 'date-fns';
+import { summaries, queue, chats, users } from '@/lib/schema';
+import { eq, asc, and, or, desc, ne, gte, sql } from 'drizzle-orm';
+import { format, subDays, startOfDay } from 'date-fns';
 import { revalidatePath } from 'next/cache';
 import { getCurrentUser } from '@/lib/server-auth';
+import bcrypt from 'bcryptjs';
 
 // No input needed, implied from session
 export async function getPatientQueue() {
@@ -192,3 +193,69 @@ export async function getPatientHistory() {
     }));
 }
 
+// ── Settings: update name ────────────────────────────────────────────────────
+export async function updateProfile(input: { fullName: string }) {
+    const user = await getCurrentUser();
+    if (!user) throw new Error('Unauthorized');
+
+    const parsed = z.object({ fullName: z.string().min(2) }).safeParse(input);
+    if (!parsed.success) return { success: false, message: 'Name must be at least 2 characters.' };
+
+    await db.update(users)
+        .set({ fullName: parsed.data.fullName })
+        .where(eq(users.id, user.id));
+
+    return { success: true, message: 'Profile updated.' };
+}
+
+// ── Settings: change password ─────────────────────────────────────────────────
+export async function changePassword(input: { currentPassword: string; newPassword: string }) {
+    const user = await getCurrentUser();
+    if (!user) throw new Error('Unauthorized');
+
+    const parsed = z.object({
+        currentPassword: z.string().min(1),
+        newPassword: z.string().min(6, 'New password must be at least 6 characters.'),
+    }).safeParse(input);
+    if (!parsed.success) return { success: false, message: parsed.error.issues[0].message };
+
+    const dbUser = await db.query.users.findFirst({ where: eq(users.id, user.id) });
+    if (!dbUser) return { success: false, message: 'User not found.' };
+
+    const valid = await bcrypt.compare(parsed.data.currentPassword, dbUser.password);
+    if (!valid) return { success: false, message: 'Current password is incorrect.' };
+
+    const hashed = await bcrypt.hash(parsed.data.newPassword, 10);
+    await db.update(users).set({ password: hashed }).where(eq(users.id, user.id));
+
+    return { success: true, message: 'Password updated successfully.' };
+}
+
+// ── Analytics: completed patients by day ─────────────────────────────────────
+export async function getHistoryAnalytics(days: 7 | 30 = 7) {
+    const user = await getCurrentUser();
+    if (!user || !['doctor', 'admin'].includes(user.role)) throw new Error('Unauthorized');
+
+    const since = subDays(startOfDay(new Date()), days);
+
+    const rows = await db.query.queue.findMany({
+        with: { summary: { columns: { triageCode: true } } },
+        where: and(
+            eq(queue.hospitalId, user.hospitalId),
+            eq(queue.status, 'completed'),
+            gte(queue.updatedAt, since),
+        ),
+        orderBy: [asc(queue.updatedAt)],
+    });
+
+    // Bucket by date string
+    const buckets: Record<string, { date: string; red: number; yellow: number; green: number }> = {};
+    for (const row of rows) {
+        const day = row.updatedAt ? format(row.updatedAt, 'MM/dd') : 'Unknown';
+        if (!buckets[day]) buckets[day] = { date: day, red: 0, yellow: 0, green: 0 };
+        const code = row.summary?.triageCode as 'red' | 'yellow' | 'green' | undefined;
+        if (code) buckets[day][code]++;
+    }
+
+    return Object.values(buckets);
+}

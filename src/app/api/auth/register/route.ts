@@ -7,7 +7,7 @@ import bcrypt from 'bcryptjs';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { fullName, email, password, hospitalId } = body;
+    const { fullName, email, password, hospitalId, specialty } = body;
 
     if (!fullName || !email || !password || !hospitalId) {
       return NextResponse.json(
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
     await db.insert(doctors).values({
       userId: user.id,
       hospitalId: hospital.id,
-      specialty: 'General Practice',
+      specialty: specialty || 'General Practice',
     } as any);
 
     return NextResponse.json(

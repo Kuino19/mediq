@@ -23,6 +23,7 @@ const registerSchema = z.object({
     email: z.string().email({ message: 'Invalid email address.' }),
     password: z.string().min(6, { message: 'Password must be at least 6 characters.' }),
     hospitalId: z.string().min(1, { message: 'Please select a hospital.' }),
+    specialty: z.string().min(2, { message: 'Please enter your specialty.' }),
 });
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
@@ -36,7 +37,7 @@ export default function RegisterPage() {
 
     const form = useForm<RegisterFormValues>({
         resolver: zodResolver(registerSchema),
-        defaultValues: { fullName: '', email: '', password: '', hospitalId: '' },
+        defaultValues: { fullName: '', email: '', password: '', hospitalId: '', specialty: '' },
     });
 
     // Fetch available hospitals on mount
@@ -150,6 +151,20 @@ export default function RegisterPage() {
                                         <FormLabel>Your Full Name</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Dr. Jane Doe" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <FormField
+                                control={form.control}
+                                name="specialty"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Specialty</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="e.g. General Practice, Paediatrics" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
