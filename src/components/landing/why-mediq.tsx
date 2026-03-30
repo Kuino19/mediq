@@ -6,7 +6,7 @@ const hospitalNeeds = [
   {
     icon: <Users className="h-8 w-8 text-primary" />,
     title: "Overwhelmed Front Desks & Long Queues",
-    description: "KinetiQ automates symptom collection and organizes queues, freeing up staff and reducing wait times before a doctor is even involved.",
+    description: "MediQ automates symptom collection and organizes queues, freeing up staff and reducing wait times before a doctor is even involved.",
   },
   {
     icon: <ClipboardList className="h-8 w-8 text-primary" />,
@@ -21,7 +21,7 @@ const hospitalNeeds = [
   {
     icon: <Siren className="h-8 w-8 text-primary" />,
     title: "No Early Triage System",
-    description: "KinetiQ's AI identifies critical keywords (e.g., chest pain) and automatically prioritizes those patients, acting as a first line of triage.",
+    description: "MediQ's AI identifies critical keywords (e.g., chest pain) and automatically prioritizes those patients, acting as a first line of triage.",
   },
   {
     icon: <Database className="h-8 w-8 text-primary" />,
@@ -34,17 +34,17 @@ const nigeriaNeeds = [
   {
     icon: <BriefcaseMedical className="h-8 w-8 text-primary" />,
     title: "High Patient-to-Doctor Ratio",
-    description: "With fewer than 5 doctors per 10,000 people, Nigerian clinics are overcrowded. KinetiQ helps doctors manage patient flow more efficiently.",
+    description: "With fewer than 5 doctors per 10,000 people, Nigerian clinics are overcrowded. MediQ helps doctors manage patient flow more efficiently.",
   },
   {
     icon: <ClipboardList className="h-8 w-8 text-primary" />,
     title: "Manual Hospital Processes",
-    description: "Many hospitals still use paper. KinetiQ digitizes patient intake, offering a simple first step into electronic health records.",
+    description: "Many hospitals still use paper. MediQ digitizes patient intake, offering a simple first step into electronic health records.",
   },
   {
     icon: <Users className="h-8 w-8 text-primary" />,
     title: "Limited Access to Medical Staff",
-    description: "In rural or understaffed areas, KinetiQ acts as a pre-consult assistant, ensuring symptoms are recorded correctly and critical cases are flagged.",
+    description: "In rural or understaffed areas, MediQ acts as a pre-consult assistant, ensuring symptoms are recorded correctly and critical cases are flagged.",
   },
   {
     icon: <Languages className="h-8 w-8 text-primary" />,
@@ -54,26 +54,26 @@ const nigeriaNeeds = [
   {
     icon: <Siren className="h-8 w-8 text-primary" />,
     title: "Healthcare Delays Can Be Fatal",
-    description: "By providing instant pre-consultation summaries and queue alerts, KinetiQ ensures life-threatening cases are attended to first.",
+    description: "By providing instant pre-consultation summaries and queue alerts, MediQ ensures life-threatening cases are attended to first.",
   },
   {
     icon: <Landmark className="h-8 w-8 text-primary" />,
     title: "Aligns with Healthcare Reforms",
-    description: "As Nigeria moves towards digital transformation (e.g., NHIA digitization), KinetiQ offers a modern, scalable, and low-cost solution for smart healthcare.",
+    description: "As Nigeria moves towards digital transformation (e.g., NHIA digitization), MediQ offers a modern, scalable, and low-cost solution for smart healthcare.",
   }
 ];
 
 
-export default function WhyKinetiQ() {
+export default function WhyMediQ() {
   return (
-    <section id="why-kinetiq" className="py-20 sm:py-32 bg-muted/30">
+    <section id="why-mediq" className="py-20 sm:py-32 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">
-            Why Your Healthcare Facility Needs KinetiQ
+            Why Your Healthcare Facility Needs MediQ
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            KinetiQ saves time, improves care, and bridges the gap between overcrowded systems and smart, accessible healthcare. In many places, it’s not just a convenience—it’s a necessity.
+            MediQ saves time, improves care, and bridges the gap between overcrowded systems and smart, accessible healthcare. In many places, it’s not just a convenience—it’s a necessity.
           </p>
         </div>
         <div className="mt-16 max-w-4xl mx-auto">

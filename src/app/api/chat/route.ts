@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
         const chatMessages = [
             {
                 role: 'system',
-                content: 'You are a helpful medical triage assistant for KinetiQ hospital. Ask relevant questions about symptoms, duration, and severity. Keep responses to 2-3 sentences. Do not provide medical diagnoses.'
+                content: 'You are a helpful medical triage assistant for MediQ hospital. Ask relevant questions about symptoms, duration, and severity. Keep responses to 2-3 sentences. Do not provide medical diagnoses.'
             },
             ...messages.map((msg: { text: string; sender: string }) => ({
                 role: msg.sender === 'user' ? 'user' : 'assistant',

@@ -50,7 +50,7 @@ export default function Hero() {
             <span className="inline-block w-1">{showCursor ? '|' : ''}</span>
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-200 md:text-xl">
-            KinetiQ leverages cutting-edge AI to optimize patient flow, reduce wait times, and enhance hospital efficiency. Welcome to the future of healthcare management.
+            MediQ leverages cutting-edge AI to optimize patient flow, reduce wait times, and enhance hospital efficiency. Welcome to the future of healthcare management.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button size="lg" asChild>

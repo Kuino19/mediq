@@ -61,7 +61,7 @@ const PATIENTS = [
         mediq_mins: 2,
         // Scripted patient turns – realistic, no self-diagnosis
         patient_turns: [
-            // Bot opens: "Hello! I'm the KinetiQ virtual assistant. How can I help you today?"
+            // Bot opens: "Hello! I'm the MediQ virtual assistant. How can I help you today?"
             "I have been having this pounding headache and I feel a bit dizzy. I am not sure what is causing it.",
             // Bot: "How long have you been feeling this way?"
             "It has been going on for about three days now.",
@@ -159,7 +159,7 @@ const PATIENTS = [
 
 // ── AI Chat System Prompt (same as production) ────────────────────────────────
 
-const CHAT_SYSTEM = `You are a helpful medical pre-consultation assistant for KinetiQ hospital. 
+const CHAT_SYSTEM = `You are a helpful medical pre-consultation assistant for MediQ hospital. 
 Your job is to gather information about the patient's symptoms through a natural conversation.
 Ask one clear question at a time. Cover: main complaint, duration, character/severity, associated symptoms, medical history, medications/allergies.
 Keep each response to 1-2 sentences. Do NOT give medical diagnoses or treatment advice.`;

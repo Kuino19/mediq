@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS chats (
 );
 
 -- Insert default hospital
-INSERT OR IGNORE INTO hospitals (id, name, address) VALUES (1, 'KinetiQ General Hospital', '123 Medical Center Dr');
+INSERT OR IGNORE INTO hospitals (id, name, address) VALUES (1, 'MediQ General Hospital', '123 Medical Center Dr');
 
 -- Insert default test user
 INSERT OR IGNORE INTO users (id, full_name, email, password, role, hospital_id) 

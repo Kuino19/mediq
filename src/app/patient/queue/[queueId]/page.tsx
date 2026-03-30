@@ -102,7 +102,7 @@ export default function PatientQueuePage() {
     // Show browser notification
     const showNotification = (status: QueueStatus) => {
         if (permissionGranted && 'Notification' in window) {
-            new Notification('KinetiQ - You\'re Next!', {
+            new Notification('MediQ - You\'re Next!', {
                 body: `${status.patientName}, please proceed to the consultation area.`,
                 icon: '/icon.png', // Updated to use the icon we saw in the file list
                 tag: 'queue-notification',

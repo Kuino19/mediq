@@ -9,23 +9,23 @@ async function createDoctor() {
         // Check if user exists
         const check = await client.execute({
             sql: "SELECT * FROM users WHERE email = ?",
-            args: ['doctor@kinetiq.com']
+            args: ['doctor@mediq.com']
         });
 
         let userId;
 
         if (check.rows.length > 0) {
-            console.log('User doctor@kinetiq.com already exists. Updating role and password...');
+            console.log('User doctor@mediq.com already exists. Updating role and password...');
             await client.execute({
                 sql: "UPDATE users SET role = 'doctor', password = 'doctor123' WHERE email = ?",
-                args: ['doctor@kinetiq.com']
+                args: ['doctor@mediq.com']
             });
             userId = check.rows[0].id;
         } else {
             console.log('Creating new doctor user...');
             const result = await client.execute({
                 sql: "INSERT INTO users (full_name, email, password, role, hospital_id, created_at) VALUES (?, ?, ?, ?, ?, ?) RETURNING id",
-                args: ['Dr. Smith', 'doctor@kinetiq.com', 'doctor123', 'doctor', 1, Math.floor(Date.now() / 1000)]
+                args: ['Dr. Smith', 'doctor@mediq.com', 'doctor123', 'doctor', 1, Math.floor(Date.now() / 1000)]
             });
             userId = result.rows[0].id;
         }
@@ -44,7 +44,7 @@ async function createDoctor() {
             });
         }
 
-        console.log('✅ Doctor user doctor@kinetiq.com created/updated successfully with password doctor123');
+        console.log('✅ Doctor user doctor@mediq.com created/updated successfully with password doctor123');
     } catch (error) {
         console.error('❌ Error creating doctor:', error);
     }

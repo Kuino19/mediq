@@ -9,23 +9,23 @@ async function createAdmin() {
         // Check if user exists
         const check = await client.execute({
             sql: "SELECT * FROM users WHERE email = ?",
-            args: ['admin@kinetiq.com']
+            args: ['admin@mediq.com']
         });
 
         if (check.rows.length > 0) {
-            console.log('User admin@kinetiq.com already exists. Updating role and password...');
+            console.log('User admin@mediq.com already exists. Updating role and password...');
             await client.execute({
                 sql: "UPDATE users SET role = 'admin', password = 'admin123' WHERE email = ?",
-                args: ['admin@kinetiq.com']
+                args: ['admin@mediq.com']
             });
         } else {
             console.log('Creating new admin user...');
             await client.execute({
                 sql: "INSERT INTO users (full_name, email, password, role, hospital_id, created_at) VALUES (?, ?, ?, ?, ?, ?)",
-                args: ['System Admin', 'admin@kinetiq.com', 'admin123', 'admin', 1, Math.floor(Date.now() / 1000)]
+                args: ['System Admin', 'admin@mediq.com', 'admin123', 'admin', 1, Math.floor(Date.now() / 1000)]
             });
         }
-        console.log('✅ Admin user admin@kinetiq.com created/updated successfully with password admin123');
+        console.log('✅ Admin user admin@mediq.com created/updated successfully with password admin123');
     } catch (error) {
         console.error('❌ Error creating admin:', error);
     }
