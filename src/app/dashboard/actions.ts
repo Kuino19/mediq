@@ -131,30 +131,58 @@ export async function callNextPatient() {
         throw new Error("Unauthorized");
     }
 
-    // Find the highest priority waiting patient for this hospital
-    const nextPatient = await db.query.queue.findFirst({
-        where: and(
-            eq(queue.hospitalId, user.hospitalId),
-            eq(queue.status, 'waiting')
-        ),
-        orderBy: [asc(queue.priority), asc(queue.createdAt)],
-    });
+    // Optimistic locking: try up to 3 times in case of contention between doctors.
+    // Pattern: find the top waiting patient, then UPDATE only if it is still
+    // status='waiting' AND doctor_id IS NULL. If another doctor grabbed it first
+    // the affected row count will be 0 — we loop and try the next candidate.
+    const MAX_ATTEMPTS = 3;
 
-    if (!nextPatient) {
-        return { success: false, message: "No patients waiting." };
+    for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+        // Find all waiting patients in priority order and skip the first `attempt`
+        // so we don't keep retrying the same row that was just claimed.
+        const candidates = await db.query.queue.findMany({
+            where: and(
+                eq(queue.hospitalId, user.hospitalId),
+                eq(queue.status, 'waiting'),
+            ),
+            orderBy: [asc(queue.priority), asc(queue.createdAt)],
+            limit: attempt + 1,
+        });
+
+        const candidate = candidates[attempt] ?? candidates[candidates.length - 1];
+
+        if (!candidate) {
+            return { success: false, message: "No patients waiting." };
+        }
+
+        // Atomic claim: only succeeds if the row is STILL waiting & unassigned
+        const result = await db
+            .update(queue)
+            .set({ status: 'in-progress', doctorId: user.id })
+            .where(
+                and(
+                    eq(queue.id, candidate.id),
+                    eq(queue.status, 'waiting'),   // guard: still waiting
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    sql`${queue.doctorId} IS NULL`, // guard: not already taken
+                )
+            )
+            .returning({ id: queue.id });
+
+        if (result.length > 0) {
+            // Successfully claimed — we own this patient
+            revalidatePath('/dashboard');
+            return { success: true, message: "Calling next patient." };
+        }
+        // result.length === 0 means another doctor claimed it first — retry
     }
 
-    // Assign to doctor and set to in-progress
-    await db.update(queue)
-        .set({
-            status: 'in-progress',
-            doctorId: user.id
-        })
-        .where(eq(queue.id, nextPatient.id));
-
-    revalidatePath('/dashboard');
-    return { success: true, message: "Calling next patient." };
+    return {
+        success: false,
+        message: "Could not claim a patient right now — please try again.",
+    };
 }
+
 
 export async function getPatientHistory() {
     const user = await getCurrentUser();
