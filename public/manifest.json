@@ -1,7 +1,7 @@
 {
-    "name": "MediQ",
-    "short_name": "MediQ",
-    "description": "MediQ - AI Powered Hospital Management",
+    "name": "Kinetiq",
+    "short_name": "Kinetiq",
+    "description": "Kinetiq - AI Powered Hospital Management",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",

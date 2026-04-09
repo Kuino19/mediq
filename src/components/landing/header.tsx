@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 const navLinks = [
   { href: "#features", label: "Features" },
-  { href: "#why-mediq", label: "Why MediQ?" },
+  { href: "#why-kinetiq", label: "Why Kinetiq?" },
   { href: "#contact", label: "Contact" },
 ];
 

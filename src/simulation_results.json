@@ -1,7 +1,7 @@
 {
   "metadata": {
     "simulation_date": "2026-03-23T21:49:10.997Z",
-    "project": "MediQ – AI-Enhanced Pre-Consultation System",
+    "project": "Kinetiq – AI-Enhanced Pre-Consultation System",
     "university": "Babcock University, Ilisan Remo, Ogun State, Nigeria",
     "authors": [
       "Adebola Joshua Adedeji – 22/0596",
@@ -52,7 +52,7 @@
       "ai_next_steps": "The doctor should review the patient's symptoms and medical history, and consider potential causes of the headaches and dizziness, such as medication side effects or underlying conditions related to hypertension.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -70,7 +70,7 @@
       "ai_next_steps": "The doctor should review the patient's current medication regimen, assess their blood glucose control, and consider adjustments to their treatment plan as needed.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -88,7 +88,7 @@
       "ai_next_steps": "The doctor should review the patient's wound healing progress, assess for any signs of infection, and provide guidance on wound care and management of itching symptoms.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -106,7 +106,7 @@
       "ai_next_steps": "The doctor should review the patient's current medication regimen and provide a refill, while also considering any necessary adjustments or follow-up appointments to manage their chronic conditions.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -124,7 +124,7 @@
       "ai_next_steps": "The doctor can proceed with a routine check-up and address any preventive care measures as needed.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -142,7 +142,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's lower back pain, considering their history of lumbar strain and occupation, and may recommend additional diagnostic tests or physical therapy.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -160,7 +160,7 @@
       "ai_next_steps": "The doctor can proceed with a routine consultation to discuss family planning options and address the patient's questions about contraception.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -178,7 +178,7 @@
       "ai_next_steps": "The doctor should review the patient's gout management plan and assess for potential flare-up, considering recent dietary factors. The doctor may also want to evaluate the need for anti-inflammatory medication or adjustments to the patient's current treatment regimen.",
       "triage_match": false,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -196,7 +196,7 @@
       "ai_next_steps": "The doctor should review the patient's eczema history, assess the effectiveness of the current hydrocortisone cream treatment, and consider further examination or alternative treatments to manage the symptoms.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -214,7 +214,7 @@
       "ai_next_steps": "The doctor should review the patient's current medication regimen and thyroid function test results to assess the need for any adjustments, and perform a routine check-up to address the patient's fatigue and cold intolerance.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -232,7 +232,7 @@
       "ai_next_steps": "The doctor should review the patient's medical history, assess the current symptoms, and consider a physical examination to evaluate the progression of osteoarthritis and discuss potential treatment options or adjustments to current medication.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -250,7 +250,7 @@
       "ai_next_steps": "The doctor should review the patient's allergy history, assess the current symptoms, and consider adjusting the treatment plan or providing additional recommendations for managing seasonal allergies.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -268,7 +268,7 @@
       "ai_next_steps": "The doctor should review the patient's current medication regimen, including the sumatriptan taken that morning, and assess the need for further treatment or adjustments to manage the migraine symptoms.",
       "triage_match": false,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -286,7 +286,7 @@
       "ai_next_steps": "The doctor should review the patient's medical history, current medication, and discuss the results of the cholesterol check to provide guidance on the effectiveness of their diet changes and any necessary adjustments to their treatment plan.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -304,7 +304,7 @@
       "ai_next_steps": "The doctor should review the patient's history of UTIs, assess the effectiveness of the recent Nitrofurantoin treatment, and consider further evaluation or testing to confirm the infection is fully resolved.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -322,7 +322,7 @@
       "ai_next_steps": "The doctor should review the patient's current medication regimen, including omeprazole, and consider lifestyle modifications, such as avoiding spicy foods, to manage symptoms.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -340,7 +340,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, including the potential causes of the headaches and dizziness, and discuss the impact of poor eating habits on their overall health.",
       "triage_match": true,
       "baseline_time_mins": 8,
-      "mediq_review_time_mins": 2,
+      "kinetiq_review_time_mins": 2,
       "time_saved_mins": 6
     },
     {
@@ -358,7 +358,7 @@
       "ai_next_steps": "The doctor should promptly evaluate the patient to determine the cause of the fever and initiate appropriate treatment, and also assess for any signs of dehydration due to reduced food intake.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -376,7 +376,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's respiratory symptoms, considering the history of asthma and the decreased effectiveness of the current medication, and potentially prepare for a treatment plan adjustment or additional diagnostic tests.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -394,7 +394,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, particularly considering the location and nature of the pain, to determine the cause and appropriate treatment, possibly including questions about fever, recent travel, or similar past episodes.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -412,7 +412,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, consider potential causes such as a urinary tract infection or pelvic inflammatory disease, and develop a treatment plan, taking into account the patient's allergy to penicillin.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -430,7 +430,7 @@
       "ai_next_steps": "The doctor should promptly evaluate the patient's symptoms, considering the history of high blood pressure and the current medication regimen, and possibly order diagnostic tests to assess cardiac function and rule out any underlying conditions that may be contributing to the chest tightness.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -448,7 +448,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, considering the possibility of deep vein thrombosis given the recent prolonged travel, and perform a physical examination and potentially order diagnostic tests.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -466,7 +466,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, considering the possibility of a contagious eye infection, and may prescribe antibiotic eye drops or ointment if necessary.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -484,7 +484,7 @@
       "ai_next_steps": "The doctor should promptly evaluate the patient to determine the cause of the vertigo and assess for any potential neurological or inner ear issues, considering the patient's history of high blood pressure and current medication.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -502,7 +502,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, possibly ordering diagnostic tests to determine the cause of the rectal bleeding, and consider a physical examination to assess for any signs of anemia or other underlying conditions.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -520,7 +520,7 @@
       "ai_next_steps": "The doctor should promptly evaluate the patient to determine the cause of the severe symptoms and consider further treatment options, such as additional pain management or diagnostic tests to rule out any underlying conditions.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -538,7 +538,7 @@
       "ai_next_steps": "The doctor should evaluate the patient's ear for signs of infection, assess their hearing, and consider prescribing antibiotics or further testing if necessary. A thorough examination and review of the patient's medical history are also recommended.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -556,7 +556,7 @@
       "ai_next_steps": "The doctor should further investigate the cause of the patient's symptoms, potentially ordering diagnostic tests to rule out underlying conditions such as thyroid disorders, infections, or malignancies.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -574,7 +574,7 @@
       "ai_next_steps": "The doctor should promptly evaluate the patient to determine the cause of the swelling and fever, and consider ordering diagnostic tests such as imaging or blood work to rule out infections or other conditions.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -592,7 +592,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, considering the history of high blood pressure and the distinct nature of these headaches, and may order diagnostic tests to determine the underlying cause.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -610,7 +610,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, consider a prostate examination, and potentially order diagnostic tests such as a urinalysis or ultrasound to determine the underlying cause of the symptoms.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -628,7 +628,7 @@
       "ai_next_steps": "The doctor should promptly evaluate the patient's symptoms, perform a physical examination, and consider ordering diagnostic tests such as a throat swab to determine the cause of the infection and guide appropriate treatment.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -646,7 +646,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, consider potential causes such as anxiety, caffeine sensitivity, or underlying cardiac issues, and may order diagnostic tests like an ECG or Holter monitor to assess heart rhythm.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -664,7 +664,7 @@
       "ai_next_steps": "The doctor should review the patient's medical history, perform a thorough eye examination, and consider ordering diagnostic tests to assess the cause of the blurry vision, potentially referring the patient to an ophthalmologist if necessary.",
       "triage_match": false,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -682,7 +682,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, considering possible causes such as gastrointestinal infections or inflammatory bowel disease, and may order diagnostic tests to determine the underlying cause of the patient's condition.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -700,7 +700,7 @@
       "ai_next_steps": "The doctor should further assess the patient's mental health, discuss coping mechanisms and stress management, and consider referring the patient to a mental health specialist if necessary.",
       "triage_match": false,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -718,7 +718,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, possibly considering rheumatological conditions, and may order diagnostic tests to determine the cause of the joint stiffness and swelling.",
       "triage_match": false,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -736,7 +736,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, potentially ordering thyroid function tests, and discuss possible hypothyroidism or other underlying conditions.",
       "triage_match": false,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -754,7 +754,7 @@
       "ai_next_steps": "The doctor should further evaluate the patient's symptoms, possibly ordering liver function tests and a physical examination to determine the cause of the jaundice and other symptoms.",
       "triage_match": true,
       "baseline_time_mins": 11,
-      "mediq_review_time_mins": 3,
+      "kinetiq_review_time_mins": 3,
       "time_saved_mins": 8
     },
     {
@@ -772,7 +772,7 @@
       "ai_next_steps": "The doctor should immediately attend to the patient for a thorough evaluation and potential emergency intervention, considering the symptoms of a potential myocardial infarction.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -790,7 +790,7 @@
       "ai_next_steps": "The doctor should immediately assess the patient's respiratory status and consider emergency interventions such as oxygen therapy or further medication to alleviate the acute asthma attack.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -808,7 +808,7 @@
       "ai_next_steps": "The doctor should immediately assess the patient for potential stroke and consider emergency interventions, such as imaging studies and thrombolytic therapy, given the patient's sudden onset of symptoms and high-risk medical history.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -826,7 +826,7 @@
       "ai_next_steps": "The doctor should immediately assess the patient for potential miscarriage or other serious pregnancy complications and consider emergency interventions, such as ultrasound evaluation and possible hospital admission.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -844,7 +844,7 @@
       "ai_next_steps": "The doctor should immediately assess the patient for potential life-threatening conditions such as lung cancer or tuberculosis, and order diagnostic tests like chest imaging and blood work to determine the underlying cause of the symptoms.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -862,7 +862,7 @@
       "ai_next_steps": "The doctor should immediately assess the patient for potential causes of the sudden severe headache, such as a subarachnoid hemorrhage, and consider urgent neuroimaging and further evaluation.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -880,7 +880,7 @@
       "ai_next_steps": "The doctor should immediately assess the patient's vital signs and perform a thorough neurological examination to determine the cause of the seizure, and consider ordering diagnostic tests such as an EEG or CT scan.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -898,7 +898,7 @@
       "ai_next_steps": "The doctor should immediately assess the patient for potential life-threatening conditions such as acute abdomen or perforation, and consider ordering diagnostic tests like imaging studies.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -916,7 +916,7 @@
       "ai_next_steps": "The doctor should immediately attend to the patient and prepare for potential anaphylaxis treatment, including administration of epinephrine and other emergency interventions.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     },
     {
@@ -934,7 +934,7 @@
       "ai_next_steps": "The doctor should immediately assess the patient's condition and consider administering glucose or other treatments to stabilize their blood sugar levels, while also reviewing their medication regimen and dietary habits.",
       "triage_match": true,
       "baseline_time_mins": 14,
-      "mediq_review_time_mins": 4,
+      "kinetiq_review_time_mins": 4,
       "time_saved_mins": 10
     }
   ],

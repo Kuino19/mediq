@@ -3,7 +3,7 @@ import Features from "@/components/landing/features";
 import Footer from "@/components/landing/footer";
 import Header from "@/components/landing/header";
 import Hero from "@/components/landing/hero";
-import WhyMediQ from "@/components/landing/why-mediq";
+import WhyKinetiq from "@/components/landing/why-kinetiq";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Features />
-        <WhyMediQ />
+        <WhyKinetiq />
         <Contact />
       </main>
       <Footer />

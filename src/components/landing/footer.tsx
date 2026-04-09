@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 sm:mb-0">
-            &copy; {new Date().getFullYear()} MediQ Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Kinetiq Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <SocialLink href="#" icon={TwitterIcon} />

@@ -3,13 +3,13 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'MediQ Landing',
+  title: 'Kinetiq Landing',
   description: 'Efficient, intelligent, and compassionate patient flow management. Welcome to the future of healthcare.',
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "MediQ",
+    title: "Kinetiq",
   },
   icons: {
     icon: "/icon.png",

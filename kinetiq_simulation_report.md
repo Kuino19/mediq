@@ -1,4 +1,4 @@
-# MediQ – AI-Enhanced Pre-Consultation System
+# Kinetiq – AI-Enhanced Pre-Consultation System
 ## Simulation Report & Research Findings
 
 **Institution:** Babcock University, Ilisan Remo, Ogun State, Nigeria  
@@ -12,19 +12,19 @@
 
 ## 1. Introduction
 
-The Nigerian healthcare system faces significant pressure from overcrowded outpatient facilities, where doctors spend a substantial portion of their consultation time simply gathering basic patient history before any clinical assessment begins. MediQ is a web-based AI-enhanced pre-consultation chatbot designed to address this bottleneck by engaging patients in a structured symptom intake conversation *before* they see a doctor, then automatically generating a concise clinical summary complete with a triage code and suggested next steps.
+The Nigerian healthcare system faces significant pressure from overcrowded outpatient facilities, where doctors spend a substantial portion of their consultation time simply gathering basic patient history before any clinical assessment begins. Kinetiq is a web-based AI-enhanced pre-consultation chatbot designed to address this bottleneck by engaging patients in a structured symptom intake conversation *before* they see a doctor, then automatically generating a concise clinical summary complete with a triage code and suggested next steps.
 
 This document presents the findings of a controlled simulation conducted across 50 synthetic patient profiles, designed to evaluate three core research questions:
 
-1. **Q1 – Time Efficiency:** Does MediQ significantly reduce the time a clinician spends reviewing patient history?
+1. **Q1 – Time Efficiency:** Does Kinetiq significantly reduce the time a clinician spends reviewing patient history?
 2. **Q2 – Triage Accuracy:** How accurately does the AI assign urgency codes (Green / Yellow / Red) compared to clinician-defined ground truth?
-3. **Q3 – Red-Flag Safety:** Does MediQ correctly escalate all life-threatening (High/Red-flag) cases?
+3. **Q3 – Red-Flag Safety:** Does Kinetiq correctly escalate all life-threatening (High/Red-flag) cases?
 
 ---
 
 ## 2. System Architecture
 
-MediQ is built on a Next.js 14 full-stack framework with the following key components:
+Kinetiq is built on a Next.js 14 full-stack framework with the following key components:
 
 | Component | Technology |
 |---|---|
@@ -37,9 +37,9 @@ MediQ is built on a Next.js 14 full-stack framework with the following key compo
 
 The **pre-consultation flow** works as follows:
 
-1. Patient logs into MediQ at the clinic kiosk or their own device.
+1. Patient logs into Kinetiq at the clinic kiosk or their own device.
 2. The AI chatbot asks a structured series of questions: chief complaint → duration → character/severity → associated symptoms → medical history → medications/allergies → additional concerns.
-3. After the conversation, MediQ calls the Groq summary endpoint which returns a structured JSON: `{summary, triageCode, nextSteps}`.
+3. After the conversation, Kinetiq calls the Groq summary endpoint which returns a structured JSON: `{summary, triageCode, nextSteps}`.
 4. The doctor opens a dashboard showing the triage-coded summary *before* the patient enters the consultation room.
 
 ---
@@ -50,19 +50,19 @@ The **pre-consultation flow** works as follows:
 
 Fifty synthetic patient profiles were designed to reflect a realistic Nigerian outpatient population distribution, covering a range of conditions seen at primary and secondary care facilities. Profiles were stratified into three complexity groups:
 
-| Group | Complexity | Profiles | Expected Triage Code | Baseline Review (mins) | MediQ Review (mins) |
+| Group | Complexity | Profiles | Expected Triage Code | Baseline Review (mins) | Kinetiq Review (mins) |
 |---|---|---|---|---|---|
 | L | Low | 17 | 🟢 Green | 8 | 2 |
 | M | Medium | 23 | 🟡 Yellow | 11 | 3 |
 | H | High / Red-Flag | 10 | 🔴 Red | 14 | 4 |
 
-**Baseline review time** represents the estimated time a junior doctor or nurse spends reading a manually completed paper form / interviewing the patient to compile a history before consultation. **MediQ review time** represents the estimated time to read the AI-generated summary.
+**Baseline review time** represents the estimated time a junior doctor or nurse spends reading a manually completed paper form / interviewing the patient to compile a history before consultation. **Kinetiq review time** represents the estimated time to read the AI-generated summary.
 
 ### 3.2 Simulation Script
 
-Each profile's `sim_responses` object (containing 7 scripted replies across standard triage questions) was used to reconstruct a simulated patient–chatbot conversation. This conversation was then submitted to the Groq Summary API — identical to the live production endpoint in [generate-summary.ts](file:///c:/Users/IFEDAYO%20LAWAL/Documents/mediq/src/lib/generate-summary.ts) — and the returned JSON was recorded.
+Each profile's `sim_responses` object (containing 7 scripted replies across standard triage questions) was used to reconstruct a simulated patient–chatbot conversation. This conversation was then submitted to the Groq Summary API — identical to the live production endpoint in [generate-summary.ts](file:///c:/Users/IFEDAYO%20LAWAL/Documents/kinetiq/src/lib/generate-summary.ts) — and the returned JSON was recorded.
 
-The simulation script ([src/simulate-mediq.mjs](file:///c:/Users/IFEDAYO%20LAWAL/Documents/mediq/src/simulate-mediq.mjs)) ran sequentially against all 50 profiles with retry logic (up to 3 attempts per profile) and a 500ms inter-request delay. **Zero errors occurred across all 50 calls.**
+The simulation script ([src/simulate-kinetiq.mjs](file:///c:/Users/IFEDAYO%20LAWAL/Documents/kinetiq/src/simulate-kinetiq.mjs)) ran sequentially against all 50 profiles with retry logic (up to 3 attempts per profile) and a 500ms inter-request delay. **Zero errors occurred across all 50 calls.**
 
 ### 3.3 Accuracy Evaluation
 
@@ -186,7 +186,7 @@ All 6 misclassifications were **conservative over-triages or under-triages with 
 
 ## 6. Selected AI Summary Outputs
 
-Below are three representative AI-generated summaries showing the quality of MediQ output.
+Below are three representative AI-generated summaries showing the quality of Kinetiq output.
 
 **Profile 41 – Chukwuemeka Obi (STEMI)** 🔴
 > *"The patient is experiencing severe crushing chest pain radiating to the left arm, accompanied by sweating, nausea, and shortness of breath, with a history of high blood pressure and diabetes. The pain started 45 minutes ago and is rated 10 out of 10 in severity."*
@@ -205,7 +205,7 @@ Below are three representative AI-generated summaries showing the quality of Med
 ## 7. Discussion
 
 ### 7.1 Time Efficiency (Q1)
-The simulation demonstrates a consistent and significant reduction in clinician review time across all complexity groups. A saving of **7.7 minutes per patient on average** represents a substantial throughput improvement. In a typical Nigerian outpatient clinic seeing 40–60 patients per day, MediQ could theoretically save between **308–462 minutes (5–7.7 hours) of clinical review time daily**, allowing doctors to focus on examination and clinical reasoning rather than history gathering.
+The simulation demonstrates a consistent and significant reduction in clinician review time across all complexity groups. A saving of **7.7 minutes per patient on average** represents a substantial throughput improvement. In a typical Nigerian outpatient clinic seeing 40–60 patients per day, Kinetiq could theoretically save between **308–462 minutes (5–7.7 hours) of clinical review time daily**, allowing doctors to focus on examination and clinical reasoning rather than history gathering.
 
 ### 7.2 Triage Accuracy (Q2)
 An overall accuracy of **88%** (44/50) is strong for a first-generation AI triage system. Critically, the AI demonstrated **no critical under-triaging** — none of the 10 High/Red-flag patients were coded below Red. The 6 misclassifications were:
@@ -213,7 +213,7 @@ An overall accuracy of **88%** (44/50) is strong for a first-generation AI triag
 - **4 under-triages** (Medium → Green): Systems/chronic onset presentations (hypothyroidism symptoms, anxiety/insomnia, RA joint pattern, diabetic vision change) that lack dramatic acute markers. This points to a need for improved AI prompt sensitivity for *insidious-onset systemic conditions*.
 
 ### 7.3 Red-Flag Safety (Q3)
-The most clinically significant finding is the **10/10 (100%) red-flag detection rate**. Every life-threatening emergency — STEMI, stroke, severe asthma attack, anaphylaxis, peritonitis, SAH, hypoglycaemia, haemoptysis, obstetric emergency, and new-onset seizure — was correctly coded as RED. This demonstrates that MediQ's AI triage logic is appropriately calibrated for the highest-priority safety function.
+The most clinically significant finding is the **10/10 (100%) red-flag detection rate**. Every life-threatening emergency — STEMI, stroke, severe asthma attack, anaphylaxis, peritonitis, SAH, hypoglycaemia, haemoptysis, obstetric emergency, and new-onset seizure — was correctly coded as RED. This demonstrates that Kinetiq's AI triage logic is appropriately calibrated for the highest-priority safety function.
 
 ### 7.4 Limitations
 1. **Synthetic profiles:** The simulation used scripted responses. Real patients may express symptoms ambiguously or incompletely, potentially reducing accuracy.
@@ -225,7 +225,7 @@ The most clinically significant finding is the **10/10 (100%) red-flag detection
 
 ## 8. Conclusions
 
-MediQ demonstrates strong performance across all three research dimensions evaluated in this simulation:
+Kinetiq demonstrates strong performance across all three research dimensions evaluated in this simulation:
 
 | Research Question | Finding |
 |---|---|
@@ -235,7 +235,7 @@ MediQ demonstrates strong performance across all three research dimensions evalu
 
 The system shows particular strength in its primary safety function — correctly identifying and escalating every high-acuity emergency case. The main area for improvement lies in the recognition of insidious-onset systemic conditions (mental health, thyroid disorders, rheumatological conditions, and diabetic complications) where the absence of acute dramatic symptoms can lead to under-triage.
 
-MediQ represents a viable, scalable, and clinically responsible AI-enhanced pre-consultation tool suitable for implementation in Nigerian outpatient settings, with the potential to significantly improve patient throughput and clinician workflow efficiency.
+Kinetiq represents a viable, scalable, and clinically responsible AI-enhanced pre-consultation tool suitable for implementation in Nigerian outpatient settings, with the potential to significantly improve patient throughput and clinician workflow efficiency.
 
 ---
 
@@ -249,4 +249,4 @@ MediQ represents a viable, scalable, and clinically responsible AI-enhanced pre-
 
 ---
 
-*This document was generated from live simulation data. The raw results are available in [src/simulation_results.json](file:///c:/Users/IFEDAYO%20LAWAL/Documents/mediq/src/simulation_results.json) in the MediQ project repository.*
+*This document was generated from live simulation data. The raw results are available in [src/simulation_results.json](file:///c:/Users/IFEDAYO%20LAWAL/Documents/kinetiq/src/simulation_results.json) in the Kinetiq project repository.*
