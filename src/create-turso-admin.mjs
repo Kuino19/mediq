@@ -22,7 +22,7 @@ const client = createClient({
   authToken: envVars.DATABASE_AUTH_TOKEN,
 });
 
-const ADMIN_EMAIL    = 'admin@mediq.com';
+const ADMIN_EMAIL    = 'admin@Kinetiq.com';
 const ADMIN_PASSWORD = 'Admin1234!';
 const ADMIN_NAME     = 'System Admin';
 

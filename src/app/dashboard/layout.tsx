@@ -53,7 +53,7 @@ export default function DashboardLayout({
           <div className="sidebar-logo-icon">
             <Activity size={20} />
           </div>
-          {!collapsed && <span className="sidebar-logo-text">MediQ</span>}
+          {!collapsed && <span className="sidebar-logo-text">Kinetiq</span>}
         </div>
 
         {/* Toggle button */}

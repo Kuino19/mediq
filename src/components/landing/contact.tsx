@@ -26,7 +26,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-semibold">Email</h3>
                 <p className="text-muted-foreground">Contact us for any inquiries.</p>
-                <a href="mailto:support@mediq.com" className="text-primary font-medium hover:underline">support@mediq.com</a>
+                <a href="mailto:support@Kinetiq.com" className="text-primary font-medium hover:underline">support@Kinetiq.com</a>
               </div>
             </div>
             <div className="flex items-start gap-4">

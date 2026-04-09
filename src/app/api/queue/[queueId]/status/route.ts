@@ -64,7 +64,7 @@ export async function GET(
             status: queueEntry.status,
             triageCode: queueEntry.summary?.triageCode || 'yellow',
             patientName,
-            hospitalName: hospital?.name || 'MediQ Hospital',
+            hospitalName: hospital?.name || 'Kinetiq Hospital',
             hospitalAddress: hospital?.address,
             priority: queueEntry.priority,
         });

@@ -92,7 +92,7 @@ export default function RegisterPage() {
                         <Link href="/"><Logo /></Link>
                     </div>
                     <CardTitle className="font-headline">Doctor Registration</CardTitle>
-                    <CardDescription>Join MediQ and select your hospital to get started.</CardDescription>
+                    <CardDescription>Join Kinetiq and select your hospital to get started.</CardDescription>
                 </CardHeader>
 
                 <CardContent>

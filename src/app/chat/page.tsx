@@ -17,7 +17,7 @@ import { getHospitals } from "./actions";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const initialMessages: Message[] = [
-  { id: '1', text: "Hello! I'm the MediQ virtual assistant. How can I help you today?", sender: 'bot' }
+  { id: '1', text: "Hello! I'm the Kinetiq virtual assistant. How can I help you today?", sender: 'bot' }
 ];
 
 // The hardcoded script for the conversation

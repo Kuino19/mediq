@@ -20,7 +20,7 @@ const features = [
   {
     icon: <Workflow className="h-10 w-10 text-primary" />,
     title: "Seamless Workflow Integration",
-    description: "MediQ integrates with your existing HIS and EMR systems for a smooth, unified operational view.",
+    description: "Kinetiq integrates with your existing HIS and EMR systems for a smooth, unified operational view.",
   },
   {
     icon: <Zap className="h-10 w-10 text-primary" />,
@@ -30,7 +30,7 @@ const features = [
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
     title: "Enhanced Patient Safety",
-    description: "By ensuring timely care and reducing overcrowding, MediQ contributes to a safer patient environment.",
+    description: "By ensuring timely care and reducing overcrowding, Kinetiq contributes to a safer patient environment.",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function Features() {
             Everything Your Hospital Needs
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            MediQ is more than just a queueing system. It&apos;s a comprehensive platform for intelligent patient flow management.
+            Kinetiq is more than just a queueing system. It&apos;s a comprehensive platform for intelligent patient flow management.
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

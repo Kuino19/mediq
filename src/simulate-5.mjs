@@ -1,5 +1,5 @@
 /**
- * MediQ – 5-Patient Realistic Simulation
+ * Kinetiq – 5-Patient Realistic Simulation
  * Patients speak in pure lay language – no self-diagnosis, no medical terms.
  * The AI chat + summary pipeline is called exactly as the live app does.
  */
@@ -58,10 +58,10 @@ const PATIENTS = [
         expected_triage: 'green',
         chief_complaint: 'Headache and dizziness (on BP treatment)',
         baseline_mins: 8,
-        mediq_mins: 2,
+        Kinetiq_mins: 2,
         // Scripted patient turns – realistic, no self-diagnosis
         patient_turns: [
-            // Bot opens: "Hello! I'm the MediQ virtual assistant. How can I help you today?"
+            // Bot opens: "Hello! I'm the Kinetiq virtual assistant. How can I help you today?"
             "I have been having this pounding headache and I feel a bit dizzy. I am not sure what is causing it.",
             // Bot: "How long have you been feeling this way?"
             "It has been going on for about three days now.",
@@ -85,7 +85,7 @@ const PATIENTS = [
         expected_triage: 'yellow',
         chief_complaint: 'Sudden abdominal pain moving to lower right',
         baseline_mins: 11,
-        mediq_mins: 3,
+        Kinetiq_mins: 3,
         patient_turns: [
             "I am having a bad pain in my stomach, it started this morning and it keeps coming and going.",
             "It started just a few hours ago, maybe since around 6 this morning.",
@@ -105,7 +105,7 @@ const PATIENTS = [
         expected_triage: 'yellow',
         chief_complaint: 'Pelvic pain and unusual discharge (allergy to a common antibiotic)',
         baseline_mins: 11,
-        mediq_mins: 3,
+        Kinetiq_mins: 3,
         patient_turns: [
             "I have been having pain in my lower belly and there is a discharge that is not normal for me.",
             "It started about five days ago.",
@@ -125,7 +125,7 @@ const PATIENTS = [
         expected_triage: 'red',
         chief_complaint: 'Crushing chest pain radiating to left arm (STEMI)',
         baseline_mins: 14,
-        mediq_mins: 4,
+        Kinetiq_mins: 4,
         patient_turns: [
             "Please I need help quickly. I have a very severe pain in the middle of my chest, it is spreading down my left arm.",
             "It started about 45 minutes ago and it has not stopped at all.",
@@ -145,7 +145,7 @@ const PATIENTS = [
         expected_triage: 'red',
         chief_complaint: 'Thunderclap worst headache of life + stiff neck (Subarachnoid haemorrhage)',
         baseline_mins: 14,
-        mediq_mins: 4,
+        Kinetiq_mins: 4,
         patient_turns: [
             "I have the worst headache of my entire life. It hit me very suddenly like something exploded in my head.",
             "It came on about 30 minutes ago very suddenly. One moment I was fine, the next moment it was like a thunderclap.",
@@ -159,7 +159,7 @@ const PATIENTS = [
 
 // ── AI Chat System Prompt (same as production) ────────────────────────────────
 
-const CHAT_SYSTEM = `You are a helpful medical pre-consultation assistant for MediQ hospital. 
+const CHAT_SYSTEM = `You are a helpful medical pre-consultation assistant for Kinetiq hospital. 
 Your job is to gather information about the patient's symptoms through a natural conversation.
 Ask one clear question at a time. Cover: main complaint, duration, character/severity, associated symptoms, medical history, medications/allergies.
 Keep each response to 1-2 sentences. Do NOT give medical diagnoses or treatment advice.`;
@@ -169,7 +169,7 @@ Keep each response to 1-2 sentences. Do NOT give medical diagnoses or treatment 
 const allResults = [];
 
 console.log('\n════════════════════════════════════════════════════');
-console.log('  MediQ – 5-Patient Realistic Simulation');
+console.log('  Kinetiq – 5-Patient Realistic Simulation');
 console.log('════════════════════════════════════════════════════\n');
 
 for (const patient of PATIENTS) {
@@ -181,10 +181,10 @@ for (const patient of PATIENTS) {
     const displayConversation = []; // { speaker, text } for output
 
     // Opening bot greeting
-    const opening = "Hello! I'm the MediQ virtual assistant. I'll ask you a few questions about what brings you in today so the doctor can prepare for your visit. How can I help you?";
+    const opening = "Hello! I'm the Kinetiq virtual assistant. I'll ask you a few questions about what brings you in today so the doctor can prepare for your visit. How can I help you?";
     chatHistory.push({ role: 'assistant', content: opening });
-    displayConversation.push({ speaker: 'MediQ', text: opening });
-    console.log(`\n  🤖 MediQ: ${opening}`);
+    displayConversation.push({ speaker: 'Kinetiq', text: opening });
+    console.log(`\n  🤖 Kinetiq: ${opening}`);
 
     for (let i = 0; i < patient.patient_turns.length; i++) {
         const patientText = patient.patient_turns[i];
@@ -202,8 +202,8 @@ for (const patient of PATIENTS) {
                 false, 120
             );
             chatHistory.push({ role: 'assistant', content: botReply });
-            displayConversation.push({ speaker: 'MediQ', text: botReply });
-            console.log(`\n  🤖 MediQ: ${botReply}`);
+            displayConversation.push({ speaker: 'Kinetiq', text: botReply });
+            console.log(`\n  🤖 Kinetiq: ${botReply}`);
         } else {
             // Final closing bot message
             await sleep(600);
@@ -215,15 +215,15 @@ for (const patient of PATIENTS) {
                 false, 80
             );
             chatHistory.push({ role: 'assistant', content: closing });
-            displayConversation.push({ speaker: 'MediQ', text: closing });
-            console.log(`\n  🤖 MediQ: ${closing}`);
+            displayConversation.push({ speaker: 'Kinetiq', text: closing });
+            console.log(`\n  🤖 Kinetiq: ${closing}`);
         }
     }
 
     // ── Generate AI Summary ───────────────────────────────────────────────────
     await sleep(800);
     const conversationText = displayConversation
-        .map(m => `${m.speaker === 'MediQ' ? 'Assistant' : 'Patient'}: ${m.text}`)
+        .map(m => `${m.speaker === 'Kinetiq' ? 'Assistant' : 'Patient'}: ${m.text}`)
         .join('\n');
 
     const rawSummary = await groq(
@@ -264,8 +264,8 @@ for (const patient of PATIENTS) {
             expected_triage: patient.expected_triage,
             triage_match: match,
             baseline_review_mins: patient.baseline_mins,
-            mediq_review_mins: patient.mediq_mins,
-            time_saved_mins: patient.baseline_mins - patient.mediq_mins,
+            Kinetiq_review_mins: patient.Kinetiq_mins,
+            time_saved_mins: patient.baseline_mins - patient.Kinetiq_mins,
         },
     });
 
@@ -287,7 +287,7 @@ console.log('══════════════════════�
 const output = {
     metadata: {
         simulation_date: new Date().toISOString(),
-        project: 'MediQ – AI-Enhanced Pre-Consultation System',
+        project: 'Kinetiq – AI-Enhanced Pre-Consultation System',
         university: 'Babcock University, Ilisan Remo, Ogun State, Nigeria',
         authors: ['Adebola Joshua Adedeji – 22/0596', 'Lawal John Ifedayo – 22/0391'],
         model: CHAT_MODEL,

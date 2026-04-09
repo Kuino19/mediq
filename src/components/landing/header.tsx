@@ -36,7 +36,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <a href="#">
           <Logo />
-          <span className="sr-only">MediQ Home</span>
+          <span className="sr-only">Kinetiq Home</span>
         </a>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
@@ -69,7 +69,7 @@ export default function Header() {
               <div className="p-4">
                 <a href="#" onClick={() => setIsMenuOpen(false)}>
                   <Logo />
-                  <span className="sr-only">MediQ Home</span>
+                  <span className="sr-only">Kinetiq Home</span>
                 </a>
                 <nav className="mt-8 flex flex-col gap-6">
                   {navLinks.map((link) => (
